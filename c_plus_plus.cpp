@@ -1,21 +1,43 @@
 #include <iostream>
 #include <vector>
 #include <set>
+#include <map>
 
 void zadanie2() {
-	std::vector<std::pair<char, int>> sterz;
 	std::cout << "Введите2" << std::endl;
-	for (;1;) {
+	std::string stroka;
+	std::cin >> stroka;
+	std::map<int, std::string> kesi;
+	std::set<int> sterzh;
+	for (int i = 1; stroka[i - 1] != '\0'; i = i + 2) {
+		kesi[stroka[i] - '0'] = "";
+		sterzh.insert(stroka[i] - '0'); //archipova shluha = whore is True
+
+	}
+	for (int i = 1; stroka[i-1] != '\0'; i = i + 2) {
+		kesi[stroka[i] - '0'] = kesi[stroka[i] - '0'] + stroka[i-1];
+	}
+	for (int i = 0; i < 3;i++) {
+		std::cout << kesi[i] << " ";
+	}
+	int cout = 0;
+	for (int sterzhen: sterzh){
+		if (kesi[sterzhen].find('R') != std::string::npos and kesi[sterzhen].find('W') != std::string::npos and kesi[sterzhen].find('B') != std::string::npos) cout += 1;
+	}
+	std::cout << " " << cout;
+	/*for (int i = 0;stroka[i] != '\0'; i =i +2) {
 		char first;
+		first = stroka[i];
 		int second;
-		std::cin >> first >> second;
-		if (first != 'R' and first != 'G' and first != 'B') break;
+		second = stroka[i+1] - '0';
 		sterz.push_back({first, second});
 		
 	}
 	for (std::pair<char, int> test : sterz) {
 		std::cout << test.first << " " << test.second;
 	}
+*/
+
 }
 
 int main() {
